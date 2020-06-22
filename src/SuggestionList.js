@@ -1,7 +1,6 @@
 import PropTypes from "prop-types";
 import React, { useRef, useEffect } from "react";
 import classNames from "classnames";
-import { isNil } from "lodash";
 import Suggestion from "./Suggestion";
 
 function SuggestionList(props) {
@@ -16,7 +15,7 @@ function SuggestionList(props) {
   };
 
   useEffect(() => {
-    if (!isNil(props.focusedSuggestionKey)) {
+    if (!Number.isInteger(props.focusedSuggestionKey)) {
       scrollToSuggestion();
     }
   }, [props.focusedSuggestionKey]);
