@@ -6,15 +6,16 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 ### Added
-- NPM Ignore file
+- NPM Ignore file.
+- Add demo link on README.md file.
 
 ### Fixed
 - Lodash dependency was breaking the code.
 
 ## [0.1.0] - 2020-06-22
 ### Added
-- Search Input
-- Suggestions with keyboard navigation
+- Search Input.
+- Suggestions with keyboard navigation.
 
 
 [Unreleased]: https://github.com/marlomgirardi/react-search/compare/v1.0.0...HEAD

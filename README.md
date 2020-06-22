@@ -2,11 +2,12 @@
 
 [![Npm Version][npm-version-image]][npm-version-url]
 
+[**DEMO**](https://codesandbox.io/s/react-search-demo-9rv33)
+
 ## TODO 📝
 
 Regarding time constrains some important steps are missing.
 
-- Live demo link
 - Tests
 - CI/CD
 - Accessibility optimizations
