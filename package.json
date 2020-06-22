@@ -1,0 +1,52 @@
+{
+  "name": "react-search-with-suggestion",
+  "version": "0.1.0",
+  "description": "An accessible, simple and dependency free search with autocomplete for react.",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "babel src -d dist",
+    "lint": "eslint src",
+    "format": "prettier --write 'src/**/*.js'"
+  },
+  "keywords": [
+    "react",
+    "search",
+    "autocomplete",
+    "suggestion",
+    "accessible"
+  ],
+  "author": "Marlom Girardi",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/marlomgirardi/react-search.git"
+  },
+  "bugs": {
+    "url": "https://github.com/marlomgirardi/react-search/issues"
+  },
+  "homepage": "https://github.com/marlomgirardi/react-search#readme",
+  "license": "MIT",
+  "peerDependencies": {
+    "react": ">=16.8.0 <17.0.0"
+  },
+  "dependencies": {
+    "classnames": "^2.2.6",
+    "prop-types": "^15.7.2"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.10.1",
+    "@babel/core": "^7.10.2",
+    "@babel/preset-env": "^7.10.2",
+    "@babel/preset-react": "^7.10.1",
+    "babel-eslint": "^10.1.0",
+    "babel-loader": "^8.1.0",
+    "eslint": "^7.3.0",
+    "eslint-config-prettier": "^6.11.0",
+    "eslint-plugin-prettier": "^3.1.4",
+    "eslint-plugin-react": "^7.20.0",
+    "eslint-plugin-react-hooks": "^4.0.4",
+    "lodash": "^4.17.15",
+    "prettier": "^2.0.5",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1"
+  }
+}
