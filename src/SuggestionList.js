@@ -15,7 +15,7 @@ function SuggestionList(props) {
   };
 
   useEffect(() => {
-    if (!Number.isInteger(props.focusedSuggestionKey)) {
+    if (Number.isInteger(props.focusedSuggestionKey)) {
       scrollToSuggestion();
     }
   }, [props.focusedSuggestionKey]);
