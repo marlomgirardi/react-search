@@ -65,7 +65,11 @@ function Search({
     };
   });
 
-  useEffect(() => setIsSuggestionsOpened(hasSuggestions), [hasSuggestions]);
+  useEffect(() => setIsSuggestionsOpened(hasSuggestions), [
+    hasSuggestions,
+    inputValue,
+  ]);
+
   useEffect(() => {
     if (suggestions[focusedSuggestionKey]) {
       setInputValue(suggestions[focusedSuggestionKey]);

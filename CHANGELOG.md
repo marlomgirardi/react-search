@@ -14,6 +14,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Fixed
 - Lodash dependency was breaking the code.
+- Suggestion was not opening on input change after pressing `ESC`.
 
 ## [0.1.0] - 2020-06-22
 ### Added
