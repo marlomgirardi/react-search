@@ -1,9 +1,12 @@
 import PropTypes from "prop-types";
 import React, { useRef, useState, useEffect } from "react";
+import classNames from "classnames";
 import SuggestionList from "./SuggestionList";
 import noop from "./utils/noop";
 
 function Search({
+  className,
+  style,
   autoFocus = false,
   label,
   onChange = noop,
@@ -14,6 +17,8 @@ function Search({
   showSearchButton = false,
   suggestionRenderer,
   suggestions = [],
+  clearButtonContent = "✕",
+  searchButtonContent = "Search",
 }) {
   const containerRef = useRef(null);
   const inputRef = useRef(null);
@@ -168,37 +173,44 @@ function Search({
   };
 
   return (
-    <div className="react-search__wrapper" ref={containerRef}>
-      <input
-        ref={inputRef}
-        type="text"
-        placeholder={placeholder}
-        aria-label={label}
-        autoCapitalize="off"
-        autoComplete="off"
-        autoCorrect="off"
-        // required={props.isRequired}
-        // disabled={props.isDisabled}
-        value={inputValue}
-        onChange={handleInputChange}
-        onKeyDown={handleKeyDown}
-      />
-      {shouldShowClearButton && (
-        <button
-          className="react-search__clear-button"
-          onClick={handleClearClick}
-        >
-          X
-        </button>
-      )}
-      {showSearchButton && (
-        <button
-          className="react-search__search-button"
-          onClick={handleSearchSubmit}
-        >
-          Search
-        </button>
-      )}
+    <div
+      className={classNames("react-search", className)}
+      style={style}
+      ref={containerRef}
+    >
+      <div className="react-search__search-box">
+        <input
+          className="react-search__input"
+          ref={inputRef}
+          type="text"
+          placeholder={placeholder}
+          aria-label={label}
+          autoCapitalize="off"
+          autoComplete="off"
+          autoCorrect="off"
+          // required={props.isRequired}
+          // disabled={props.isDisabled}
+          value={inputValue}
+          onChange={handleInputChange}
+          onKeyDown={handleKeyDown}
+        />
+        {shouldShowClearButton && (
+          <button
+            className="react-search__clear-button"
+            onClick={handleClearClick}
+          >
+            {clearButtonContent}
+          </button>
+        )}
+        {showSearchButton && (
+          <button
+            className="react-search__search-button"
+            onClick={handleSearchSubmit}
+          >
+            {searchButtonContent}
+          </button>
+        )}
+      </div>
       {isSuggestionsOpened && (
         <SuggestionList
           focusedSuggestionKey={focusedSuggestionKey}
@@ -215,6 +227,10 @@ function Search({
 }
 
 Search.propTypes = {
+  clearButtonContent: PropTypes.node,
+  searchButtonContent: PropTypes.node,
+  className: PropTypes.string,
+  style: PropTypes.string,
   label: PropTypes.string,
   placeholder: PropTypes.string,
   autoFocus: PropTypes.bool,

@@ -8,6 +8,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Added
 - NPM Ignore file.
 - Add demo link on README.md file.
+- Custom clear and search button content using `clearButtonContent` and `searchButtonContent`.
+- Compatibility with styled-components and inline style.
+- CSS Classes to help styling without headache.
 
 ### Fixed
 - Lodash dependency was breaking the code.
