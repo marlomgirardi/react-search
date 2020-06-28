@@ -12,13 +12,13 @@ function Search({
   onChange = noop,
   onClear = noop,
   onSearch,
-  placeholder,
   showClearButton = false,
   showSearchButton = false,
   suggestionRenderer,
   suggestions = [],
   clearButtonContent = "✕",
   searchButtonContent = "Search",
+  ...rest
 }) {
   const containerRef = useRef(null);
   const inputRef = useRef(null);
@@ -187,16 +187,14 @@ function Search({
           className="react-search__input"
           ref={inputRef}
           type="text"
-          placeholder={placeholder}
           aria-label={label}
           autoCapitalize="off"
           autoComplete="off"
           autoCorrect="off"
-          // required={props.isRequired}
-          // disabled={props.isDisabled}
           value={inputValue}
           onChange={handleInputChange}
           onKeyDown={handleKeyDown}
+          {...rest}
         />
         {shouldShowClearButton && (
           <button
