@@ -1,35 +1,37 @@
 import PropTypes from "prop-types";
 import React, { forwardRef } from "react";
 
-function Suggestion(
-  {
-    className,
-    suggestion,
-    searchTerm,
-    onClickSuggestion,
-    onMouseOver,
-    suggestionRenderer,
-    index,
-  },
-  ref
-) {
-  const handleClick = () => onClickSuggestion(suggestion);
-  const handleMouseOver = (event) => onMouseOver(event, index);
+const Suggestion = forwardRef(
+  (
+    {
+      className,
+      suggestion,
+      searchTerm,
+      onClickSuggestion,
+      onMouseOver,
+      suggestionRenderer,
+      index,
+    },
+    ref
+  ) => {
+    const handleClick = () => onClickSuggestion(suggestion);
+    const handleMouseOver = (event) => onMouseOver(event, index);
 
-  return (
-    <li
-      role="option"
-      ref={ref}
-      key={suggestion}
-      aria-label={suggestion}
-      className={className}
-      onClick={handleClick}
-      onMouseOver={handleMouseOver}
-    >
-      {suggestionRenderer(suggestion, searchTerm)}
-    </li>
-  );
-}
+    return (
+      <li
+        role="option"
+        ref={ref}
+        key={suggestion}
+        aria-label={suggestion}
+        className={className}
+        onClick={handleClick}
+        onMouseOver={handleMouseOver}
+      >
+        {suggestionRenderer(suggestion, searchTerm)}
+      </li>
+    );
+  }
+);
 
 Suggestion.propTypes = {
   onClickSuggestion: PropTypes.func.isRequired,
@@ -46,4 +48,6 @@ Suggestion.defaultProps = {
   suggestionRenderer: (suggestion) => <div>{suggestion}</div>,
 };
 
-export default forwardRef(Suggestion);
+Suggestion.displayName = "Suggestion";
+
+export default Suggestion;
