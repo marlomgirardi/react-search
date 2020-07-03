@@ -119,6 +119,10 @@ function Search({
    * @param {React.KeyboardEvent<HTMLInputElement>} event
    */
   const handleKeyDown = (event) => {
+    if (event.key === "Enter") {
+      handleSearchSubmit();
+    }
+
     if (!hasSuggestions) {
       return null;
     }
@@ -168,10 +172,6 @@ function Search({
 
           setFocusedSuggestionKey(newFocusedSuggestionKey);
         }
-        break;
-
-      case "Enter":
-        handleSearchSubmit();
         break;
     }
   };
