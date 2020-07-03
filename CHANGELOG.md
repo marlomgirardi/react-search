@@ -8,6 +8,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Added
 - Allow to define an initial value when needed for the search.
 
+### Changed
+- Dependency updates.
+
 ## [0.3.2] - 2020-06-29
 ### Fixed
 - Transform ES Modules to CommonJS.
