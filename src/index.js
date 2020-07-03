@@ -18,13 +18,14 @@ function Search({
   suggestions = [],
   clearButtonContent = "✕",
   searchButtonContent = "Search",
+  initialValue = "",
   ...rest
 }) {
   const containerRef = useRef(null);
   const inputRef = useRef(null);
-  const [inputValue, setInputValue] = useState("");
-  const [searchTerm, setSearchTerm] = useState("");
-  const [originalInputValue, setOriginalInputValue] = useState(undefined);
+  const [inputValue, setInputValue] = useState(initialValue);
+  const [searchTerm, setSearchTerm] = useState(initialValue.toLowerCase());
+  const [originalInputValue, setOriginalInputValue] = useState(initialValue);
   const [focusedSuggestionKey, setFocusedSuggestionKey] = useState(null);
   const [hoveredSuggestionKey, setHoveredSuggestionKey] = useState(null);
   const [isSuggestionsOpened, setIsSuggestionsOpened] = useState(false);
@@ -106,6 +107,12 @@ function Search({
     setFocusedSuggestionKey(null);
     setIsSuggestionsOpened(false);
     onSearch(inputValue);
+  };
+
+  const handleFocus = () => {
+    if (searchTerm) {
+      setIsSuggestionsOpened(true);
+    }
   };
 
   /**
@@ -193,6 +200,7 @@ function Search({
           autoCorrect="off"
           value={inputValue}
           onChange={handleInputChange}
+          onFocus={handleFocus}
           onKeyDown={handleKeyDown}
           {...rest}
         />
@@ -229,6 +237,7 @@ function Search({
 }
 
 Search.propTypes = {
+  initialValue: PropTypes.string,
   clearButtonContent: PropTypes.node,
   searchButtonContent: PropTypes.node,
   className: PropTypes.string,
